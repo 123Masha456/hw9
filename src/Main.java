@@ -22,38 +22,35 @@ public class Main {
         for (int element : money) {
             total += element;
         }
-        {
-            System.out.println("Сумма трат за месяц составила " + total);
-        }
+        System.out.println("Сумма трат за месяц составила " + total);
     }
 
     public static void task2() {
         System.out.println("Задача 2");
         int[] money = generateRandomArray();
-        int maxPay = 0;
-        int minPay = 1_000_000;
-        for (final int current : money) {
-            if (current > maxPay) {
-                maxPay = current;
+        int maxPay = money[0];
+        int minPay = money[0];
+        for (int i = 0; i < money.length; i++) {
+            if (money[i] > maxPay) {
+                maxPay = money[i];
+            }
+            if (money[i] < minPay) {
+                minPay = money[i];
             }
         }
         System.out.println("Максимальная сумма трат за день составила " + maxPay);
-        for (final int current : money) {
-            if (current < minPay) {
-                minPay = current;
-            }
-        }
-        System.out.println("Минимальная сумма трат за день оставила " + minPay);
+        System.out.println("Минимальная сумма трат за день составила " + minPay);
     }
+
 
     public static void task3() {
         System.out.println("Задача 3");
         int[] money = generateRandomArray();
         int total = 0;
-        for (double element : money) {
-            total += element;
+        for (int i = 0; i < money.length; i++) {
+            total += money[i];
         }
-        double middlePay = total / 30;
+        double middlePay = (double) total / money.length;
         System.out.println("Средняя сумма трат за день составила " + middlePay);
     }
 
@@ -63,7 +60,6 @@ public class Main {
         for (int i = reverseFullName.length - 1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
-
     }
 }
 
